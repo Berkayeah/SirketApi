@@ -1,7 +1,9 @@
 ﻿using System;
 using Npgsql;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System.Linq;
+using SirektApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SirektApi.Controllers
 {
@@ -9,39 +11,28 @@ namespace SirektApi.Controllers
 	[Route("api/[Controller]")]
 	public class PersonelController : ControllerBase
 	{
+		private readonly SirketDbContext _context;
+		public PersonelController(SirketDbContext context)
+		{
+			_context = context;
+		}
+
 		[HttpGet]
 		public IActionResult GetPersoneller()
 		{
-			string connString = "Host=localhost;Database=PersonelOrnegi;Username=postgres;Password=0017";
-			var personelListesi = new List<PersonelDetayDto>();
-			try
-			{
-				using var connection = new NpgsqlConnection(connString);
-				connection.Open();
-
-				string sql = @"
-					SELECT p.ad, p.soyad, b.birimadi, s.sehiradi 
-                    FROM personel p
-                    INNER JOIN birim b ON p.birimid = b.birimid
-                    INNER JOIN sehir s ON p.sehirkodu = s.sehirkodu";
-				using var command = new NpgsqlCommand(sql, connection);
-				using var reader = command.ExecuteReader();
-				while (reader.Read())
+			var personeller = _context.Personeller
+				.Include(p => p.Birim)
+				.Include(p => p.Sehir)
+				.Select(p => new PersonelDetayDto
 				{
-					personelListesi.Add(new PersonelDetayDto
-					{
-						Ad = reader.GetString(0),
-						Soyad = reader.GetString(1),
-						BirimAdi = reader.GetString(2),
-						SehirAdi = reader.GetString(3)
-					});
-				}
-				return Ok(personelListesi);
-			}
-			catch (Exception ex)
-			{
-				return BadRequest(ex.Message);
-			}
+					Ad = p.Ad,
+					Soyad = p.Soyad,
+					BirimAdi = p.Birim.BirimAdi,
+					SehirAdi = p.Sehir.SehirAdi
+				})
+				.ToList();
+
+			return Ok(personeller);
 		}
 	}
 
@@ -54,4 +45,3 @@ namespace SirektApi.Controllers
 	}
 	
 }
-

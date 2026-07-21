@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "/Users/beko/Projects/SirektApi/SirektApi/SirektApi.csproj": {}
+    "/Users/beko/Projects/SirektApi/SirektApi/SirketApi.csproj": {}
   },
   "projects": {
-    "/Users/beko/Projects/SirektApi/SirektApi/SirektApi.csproj": {
+    "/Users/beko/Projects/SirektApi/SirektApi/SirketApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/beko/Projects/SirektApi/SirektApi/SirektApi.csproj",
-        "projectName": "SirektApi",
-        "projectPath": "/Users/beko/Projects/SirektApi/SirektApi/SirektApi.csproj",
+        "projectUniqueName": "/Users/beko/Projects/SirektApi/SirektApi/SirketApi.csproj",
+        "projectName": "SirketApi",
+        "projectPath": "/Users/beko/Projects/SirektApi/SirektApi/SirketApi.csproj",
         "packagesPath": "/Users/beko/.nuget/packages/",
         "outputPath": "/Users/beko/Projects/SirektApi/SirektApi/obj/",
         "projectStyle": "PackageReference",

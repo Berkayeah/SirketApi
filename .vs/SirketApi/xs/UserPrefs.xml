@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{E855251F-ABBC-4060-9951-E3C9F1C8B29D}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SirketApi PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SirektApi/Controllers/PersonelController.cs">
+    <Files>
+      <File FileName="SirektApi/Controllers/PersonelController.cs" Line="47" Column="2" />
+      <File FileName="SirektApi/Models/Birim.cs" Line="13" Column="19" />
+      <File FileName="SirektApi/Models/Sehir.cs" Line="18" Column="1" />
+      <File FileName="SirektApi/Models/Personel.cs" Line="20" Column="26" />
+      <File FileName="SirektApi/DbContext.cs" Line="19" Column="1" />
+      <File FileName="SirektApi/Program.cs" Line="7" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SirketApi" expanded="True">
+            <Node name="SirketApi">
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
