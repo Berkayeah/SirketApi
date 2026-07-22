@@ -5,6 +5,12 @@ VisualStudioVersion = 25.0.1706.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirketApi", "SirektApi\SirketApi.csproj", "{E855251F-ABBC-4060-9951-E3C9F1C8B29D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirketApp.Core", "SirketApp.Core\SirketApp.Core.csproj", "{6D9AD2D1-B956-4DB9-968C-E1028A3447FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirketApp.DataAccess", "SirketApp.DataAccess\SirketApp.DataAccess.csproj", "{7673A36D-1D5E-4E04-8D35-2625FF9DFE51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SirketApp.Business", "SirketApp.Business\SirketApp.Business.csproj", "{079514FE-F8B3-4CE4-BE89-1227653D9CC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{E855251F-ABBC-4060-9951-E3C9F1C8B29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E855251F-ABBC-4060-9951-E3C9F1C8B29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E855251F-ABBC-4060-9951-E3C9F1C8B29D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9AD2D1-B956-4DB9-968C-E1028A3447FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9AD2D1-B956-4DB9-968C-E1028A3447FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9AD2D1-B956-4DB9-968C-E1028A3447FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9AD2D1-B956-4DB9-968C-E1028A3447FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7673A36D-1D5E-4E04-8D35-2625FF9DFE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7673A36D-1D5E-4E04-8D35-2625FF9DFE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7673A36D-1D5E-4E04-8D35-2625FF9DFE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7673A36D-1D5E-4E04-8D35-2625FF9DFE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{079514FE-F8B3-4CE4-BE89-1227653D9CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079514FE-F8B3-4CE4-BE89-1227653D9CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079514FE-F8B3-4CE4-BE89-1227653D9CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079514FE-F8B3-4CE4-BE89-1227653D9CC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

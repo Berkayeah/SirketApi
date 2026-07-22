@@ -47,3 +47,11 @@
 /Users/beko/Projects/SirektApi/SirektApi/obj/Debug/net6.0/SirketApi.pdb
 /Users/beko/Projects/SirektApi/SirektApi/obj/Debug/net6.0/SirketApi.genruntimeconfig.cache
 /Users/beko/Projects/SirektApi/SirektApi/obj/Debug/net6.0/ref/SirketApi.dll
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/Dapper.dll
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/SirketApp.Business.dll
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/SirketApp.Core.dll
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/SirketApp.DataAccess.dll
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/SirketApp.Business.pdb
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/SirketApp.DataAccess.pdb
+/Users/beko/Projects/SirektApi/SirektApi/bin/Debug/net6.0/SirketApp.Core.pdb

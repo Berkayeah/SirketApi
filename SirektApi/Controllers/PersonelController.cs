@@ -1,9 +1,5 @@
-﻿using System;
-using Npgsql;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using SirektApi.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using SirketApp.Business;
 
 namespace SirektApi.Controllers
 {
@@ -11,37 +7,26 @@ namespace SirektApi.Controllers
 	[Route("api/[Controller]")]
 	public class PersonelController : ControllerBase
 	{
-		private readonly SirketDbContext _context;
-		public PersonelController(SirketDbContext context)
+		private readonly IPersonelService _personelService;
+		public PersonelController(IPersonelService personelService)
 		{
-			_context = context;
+			_personelService = personelService;
 		}
 
 		[HttpGet]
 		public IActionResult GetPersoneller()
 		{
-			var personeller = _context.Personeller
-				.Include(p => p.Birim)
-				.Include(p => p.Sehir)
-				.Select(p => new PersonelDetayDto
-				{
-					Ad = p.Ad,
-					Soyad = p.Soyad,
-					BirimAdi = p.Birim.BirimAdi,
-					SehirAdi = p.Sehir.SehirAdi
-				})
-				.ToList();
+			var personeller = _personelService.GetPersoneller();
 
 			return Ok(personeller);
 		}
-	}
 
-	public class PersonelDetayDto
-	{
-			public string Ad { get; set; }
-			public string Soyad { get; set; }
-			public string BirimAdi { get; set; }
-			public string SehirAdi { get; set; }
+		[HttpGet("dapper-liste")]
+		public IActionResult GetPersonellerDapper()
+		{
+			var personeller = _personelService.GetPersonellerDapper();
+			return Ok(personeller);
+
+		}
 	}
-	
 }

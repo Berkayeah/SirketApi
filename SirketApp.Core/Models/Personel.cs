@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SirektApi.Models
+namespace SirketApp.Core.Models
 {
     [Table("personel")]
     public class Personel

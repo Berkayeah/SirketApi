@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Vtc5UY6MI8l+iE4KrxWRvuR5lU8kU0kyPatuXzd3Ocl0A8HRh/IdwB9RaXjtcV27FVIvVA0aG0l1Q1yD94FtKg==",
+  "dgSpecHash": "uiYwPIaYmImZYUdSomhdztXTrcLsz1WbBtcw75L+WJQZnRJ8dTvWhQaqlujWo3gxQGMxKXlzPW3+L6eq0LGEzQ==",
   "success": true,
   "projectFilePath": "/Users/beko/Projects/SirektApi/SirektApi/SirketApi.csproj",
   "expectedPackageFiles": [
+    "/Users/beko/.nuget/packages/dapper/2.1.79/dapper.2.1.79.nupkg.sha512",
     "/Users/beko/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/Users/beko/.nuget/packages/microsoft.bcl.asyncinterfaces/10.0.8/microsoft.bcl.asyncinterfaces.10.0.8.nupkg.sha512",
     "/Users/beko/.nuget/packages/microsoft.entityframeworkcore/6.0.36/microsoft.entityframeworkcore.6.0.36.nupkg.sha512",
     "/Users/beko/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.36/microsoft.entityframeworkcore.abstractions.6.0.36.nupkg.sha512",
     "/Users/beko/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.36/microsoft.entityframeworkcore.analyzers.6.0.36.nupkg.sha512",
@@ -29,7 +31,9 @@
     "/Users/beko/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "/Users/beko/.nuget/packages/system.collections.immutable/6.0.1/system.collections.immutable.6.0.1.nupkg.sha512",
     "/Users/beko/.nuget/packages/system.diagnostics.diagnosticsource/6.0.2/system.diagnostics.diagnosticsource.6.0.2.nupkg.sha512",
+    "/Users/beko/.nuget/packages/system.reflection.emit.lightweight/4.7.0/system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "/Users/beko/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/beko/.nuget/packages/system.threading.tasks.extensions/4.6.3/system.threading.tasks.extensions.4.6.3.nupkg.sha512",
     "/Users/beko/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.31/microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512",
     "/Users/beko/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.31/microsoft.netcore.app.host.osx-arm64.6.0.31.nupkg.sha512",
     "/Users/beko/.nuget/packages/microsoft.netcore.app.ref/6.0.31/microsoft.netcore.app.ref.6.0.31.nupkg.sha512"

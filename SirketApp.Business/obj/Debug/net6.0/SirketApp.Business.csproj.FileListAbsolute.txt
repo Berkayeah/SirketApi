@@ -1,0 +1,17 @@
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.csproj.AssemblyReference.cache
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.GeneratedMSBuildEditorConfig.editorconfig
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.AssemblyInfoInputs.cache
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.AssemblyInfo.cs
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.csproj.CoreCompileInputs.cache
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.Business.deps.json
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.Business.dll
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.Business.pdb
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.Core.dll
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.DataAccess.dll
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.Core.pdb
+/Users/beko/Projects/SirektApi/SirketApp.Business/bin/Debug/net6.0/SirketApp.DataAccess.pdb
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.csproj.CopyComplete
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.dll
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/refint/SirketApp.Business.dll
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/SirketApp.Business.pdb
+/Users/beko/Projects/SirektApi/SirketApp.Business/obj/Debug/net6.0/ref/SirketApp.Business.dll
