@@ -105,6 +105,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.79, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.29, )"

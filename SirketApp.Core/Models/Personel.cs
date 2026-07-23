@@ -20,7 +20,10 @@ namespace SirketApp.Core.Models
         public int BirimId { get; set; }
 
         [Column("sehirkodu")]
-        public string SehirKodu { get; set; }
+        public int SehirKodu { get; set; }
+
+        [Column("tcno")]
+        public string Tcno { get; set; }
 
 
         [ForeignKey("BirimId")]

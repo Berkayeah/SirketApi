@@ -15,9 +15,17 @@
     <PackageReference Include="Npgsql" Version="6.0.13" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Services\" />
+    <None Remove="Interfaces\" />
     <None Remove="DTOs\" />
+    <None Remove="DTOs\RequestDtos\" />
+    <None Remove="DTOs\ResponseDtos\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="DTOs\" />
+    <Folder Include="DTOs\RequestDtos\" />
+    <Folder Include="DTOs\ResponseDtos\" />
   </ItemGroup>
 </Project>

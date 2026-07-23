@@ -8,11 +8,34 @@
     ".NETCoreApp,Version=v6.0": {
       "SirketApp.DataAccess/1.0.0": {
         "dependencies": {
+          "Dapper": "2.1.79",
+          "Npgsql": "6.0.13",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.29",
           "SirketApp.Core": "1.0.0"
         },
         "runtime": {
           "SirketApp.DataAccess.dll": {}
+        }
+      },
+      "Dapper/2.1.79": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "10.0.8",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
+          "System.Threading.Tasks.Extensions": "4.6.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.79.29349"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/10.0.8": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "10.0.0.8",
+            "fileVersion": "10.0.826.23019"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore/6.0.29": {
@@ -156,14 +179,14 @@
           }
         }
       },
-      "Npgsql/6.0.11": {
+      "Npgsql/6.0.13": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Npgsql.dll": {
-            "assemblyVersion": "6.0.11.0",
-            "fileVersion": "6.0.11.0"
+            "assemblyVersion": "6.0.13.0",
+            "fileVersion": "6.0.13.0"
           }
         }
       },
@@ -172,7 +195,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.29",
           "Microsoft.EntityFrameworkCore.Abstractions": "6.0.29",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.29",
-          "Npgsql": "6.0.11"
+          "Npgsql": "6.0.13"
         },
         "runtime": {
           "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
@@ -197,7 +220,9 @@
           }
         }
       },
+      "System.Reflection.Emit.Lightweight/4.7.0": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "System.Threading.Tasks.Extensions/4.6.3": {},
       "SirketApp.Core/1.0.0": {
         "runtime": {
           "SirketApp.Core.dll": {}
@@ -210,6 +235,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Dapper/2.1.79": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8YijbzgTfmqmQOnVNorYM6K++pxqnW3nJ4aC1sRHzxUA2CcuoJ9gsTem3kgBnPRMc38zZHl4Esb6hAezXIEEuw==",
+      "path": "dapper/2.1.79",
+      "hashPath": "dapper.2.1.79.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e+kYYRb0HmNo5FTOcjXkP0mIEFHEyygm4ea/iLWpdumsACzCH078nZMfnk6RQFmtSrnNbh654c8nNtmUSwQoow==",
+      "path": "microsoft.bcl.asyncinterfaces/10.0.8",
+      "hashPath": "microsoft.bcl.asyncinterfaces.10.0.8.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/6.0.29": {
       "type": "package",
@@ -302,12 +341,12 @@
       "path": "microsoft.extensions.primitives/6.0.0",
       "hashPath": "microsoft.extensions.primitives.6.0.0.nupkg.sha512"
     },
-    "Npgsql/6.0.11": {
+    "Npgsql/6.0.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZPpjFpW0m71pqAMIpUdVZUY74TCTqCXrytbFsMvm8IuAadpfV9K1lwphuyDBKCsc3w1i7TH+aevHQ6TZ+b0ZMw==",
-      "path": "npgsql/6.0.11",
-      "hashPath": "npgsql.6.0.11.nupkg.sha512"
+      "sha512": "sha512-BykQh/1NuozrAMk4uHQe0/YhCO9Xv+iGI3ZkQ0niPr88nV9oLq4gbn72zwQlzAOqKR6L8abx9rlEVQIjWxArEg==",
+      "path": "npgsql/6.0.13",
+      "hashPath": "npgsql.6.0.13.nupkg.sha512"
     },
     "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.29": {
       "type": "package",
@@ -330,12 +369,26 @@
       "path": "system.diagnostics.diagnosticsource/6.0.1",
       "hashPath": "system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512"
     },
+    "System.Reflection.Emit.Lightweight/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
+      "path": "system.reflection.emit.lightweight/4.7.0",
+      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+    },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Extensions/4.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7sCiwilJLYbTZELaKnc7RecBBXWXA+xMLQWZKWawBxYjp6DBlSE3v9/UcvKBvr1vv2tTOhipiogM8rRmxlhrVA==",
+      "path": "system.threading.tasks.extensions/4.6.3",
+      "hashPath": "system.threading.tasks.extensions.4.6.3.nupkg.sha512"
     },
     "SirketApp.Core/1.0.0": {
       "type": "project",

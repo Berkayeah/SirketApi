@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SirketApp.Business;
+using SirketApp.Business.Services;
+using SirketApp.Business.DTOs.RequestDtos;
 
 namespace SirektApi.Controllers
 {
@@ -27,6 +28,13 @@ namespace SirektApi.Controllers
 			var personeller = _personelService.GetPersonellerDapper();
 			return Ok(personeller);
 
+		}
+
+		[HttpPost]
+		public IActionResult Add([FromBody] PersonelRequestDto request)
+		{
+			_personelService.PersonelEkle(request);
+			return Ok("Personel başarıyla eklendi.");
 		}
 	}
 }
