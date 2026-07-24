@@ -1,15 +1,21 @@
-﻿using SirketApp.Business.DTOs.RequestDtos;
-using SirketApp.Business.DTOs.ResponseDtos;
+﻿using SirketApp.Business.DTOs.DtoRequests;
+using SirketApp.Business.DTOs.DtoResponses;
 using System.Collections.Generic;
 
 namespace SirketApp.Business.Services
 {
 	public interface IPersonelService
 	{
-		List<PersonelResponseDto> GetPersoneller();
-		List<PersonelResponseDto> GetPersonellerDapper();
+		List<DtoPersonelResponse> GetPersoneller();
+		List<DtoPersonelResponse> GetPersonellerDapper();
 
-		void PersonelEkle(PersonelRequestDto request);
+		public DtoResponse PersonelEkle(DtoPersonelRequest request);
+
+		public DtoResponse GetPersonelById(int id);
+
+		public DtoResponse PersonelGuncelle(int id, DtoPersonelRequest request);
+
+		public DtoResponse PersonelSil(int id);
 	}
 }
 

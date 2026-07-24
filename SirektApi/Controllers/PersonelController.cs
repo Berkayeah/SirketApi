@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SirketApp.Business.Services;
-using SirketApp.Business.DTOs.RequestDtos;
+using SirketApp.Business.DTOs.DtoRequests;
+using SirketApp.Business.DTOs.DtoResponses;
 
 namespace SirektApi.Controllers
 {
@@ -31,10 +32,36 @@ namespace SirektApi.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Add([FromBody] PersonelRequestDto request)
+		public IActionResult Add([FromBody] DtoPersonelRequest request)
 		{
-			_personelService.PersonelEkle(request);
-			return Ok("Personel başarıyla eklendi.");
-		}
-	}
+            DtoResponse response = _personelService.PersonelEkle(request);
+
+            if (response.ReqCode == 200)
+                return Ok(response);
+            else
+                return BadRequest(response);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            DtoResponse response = _personelService.GetPersonelById(id);
+
+            return response.ReqCode == 200 ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody] DtoPersonelRequest request)
+        {
+            DtoResponse response = _personelService.PersonelGuncelle(id, request);
+            return response.ReqCode == 200 ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            DtoResponse response = _personelService.PersonelSil(id);
+            return response.ReqCode == 200 ? Ok(response) : BadRequest(response);
+        }
+    }
 }

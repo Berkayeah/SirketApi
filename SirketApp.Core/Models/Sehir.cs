@@ -8,7 +8,7 @@ namespace SirketApp.Core.Models
 	{
 		[Key]
 		[Column("sehirkodu")]
-		public int SehirKodu { get; set; }
+		public string SehirKodu { get; set; }
 
         [Column("sehiradi")]
         public string SehirAdi { get; set; }

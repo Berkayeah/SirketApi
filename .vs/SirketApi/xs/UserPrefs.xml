@@ -2,36 +2,36 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="SirektApi/DbContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SirektApi/Controllers/PersonelController.cs">
     <Files>
-      <File FileName="SirektApi/Controllers/PersonelController.cs" Line="67" Column="1" />
-      <File FileName="SirektApi/Models/Birim.cs" Line="4" Column="25" />
-      <File FileName="SirektApi/Models/Personel.cs" Line="4" Column="25" />
-      <File FileName="SirketApp.Core/Models/Sehir.cs" Line="16" Column="2" />
-      <File FileName="SirektApi/DbContext.cs" Line="19" Column="1" />
-      <File FileName="SirektApi/Program.cs" Line="7" Column="1" />
+      <File FileName="SirketApp.Business/Services/PersonelService.cs" Line="2" Column="34" />
+      <File FileName="SirketApp.Business/Interfaces/IPersonelService.cs" Line="16" Column="1" />
+      <File FileName="SirektApi/Controllers/PersonelController.cs" Line="41" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SirketApi" expanded="True">
             <Node name="SirketApi" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="PersonelController.cs" selected="True" />
+              </Node>
             </Node>
-            <Node name="SirketApp.Core" expanded="True">
-              <Node name="Models" expanded="True" />
+            <Node name="SirketApp.Business">
+              <Node name="DTOs" expanded="True">
+                <Node name="DtoRequests" expanded="True" />
+                <Node name="DtoResponses" expanded="True" />
+              </Node>
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
-            <Node name="SirketApp.DataAccess" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.SirketApi PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.ItemProperties.SirketApp.Business FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.SirketApp.Core FirstBuild="True" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.SirketApp.DataAccess FirstBuild="True" />
 </Properties>

@@ -1,7 +1,7 @@
 ﻿using System;
-namespace SirketApp.Business.DTOs.ResponseDtos
+namespace SirketApp.Business.DTOs.DtoResponses
 {
-	public class PersonelResponseDto
+	public class DtoPersonelResponse
 	{
 		public string Ad { get; set; } = string.Empty;
 		public string Soyad { get; set; } = string.Empty;

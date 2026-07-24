@@ -18,14 +18,14 @@
     <None Remove="Services\" />
     <None Remove="Interfaces\" />
     <None Remove="DTOs\" />
-    <None Remove="DTOs\RequestDtos\" />
-    <None Remove="DTOs\ResponseDtos\" />
+    <None Remove="DTOs\DtoRequests\" />
+    <None Remove="DTOs\DtoResponses\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Interfaces\" />
     <Folder Include="DTOs\" />
-    <Folder Include="DTOs\RequestDtos\" />
-    <Folder Include="DTOs\ResponseDtos\" />
+    <Folder Include="DTOs\DtoRequests\" />
+    <Folder Include="DTOs\DtoResponses\" />
   </ItemGroup>
 </Project>
