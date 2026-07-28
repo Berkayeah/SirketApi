@@ -4,33 +4,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SirketApp.Core.Models
 {
     [Table("personel")]
-    public class Personel
+    public class Personel : CoreEntity
     {
-        [Key]
-        [Column("id")]
-        public int Id { get; set; }
-
         [Column("ad")]
-        public string Ad { get; set; }
+        public string Ad { get; set; } = string.Empty;
 
         [Column("soyad")]
-        public string Soyad { get; set; }
+        public string Soyad { get; set; } = string.Empty;
 
         [Column("birimid")]
         public int BirimId { get; set; }
 
-        [Column("sehirkodu")]
-        public string SehirKodu { get; set; }
+        [Column("sehirid")]
+        public int SehirId { get; set; }
 
         [Column("tcno")]
-        public string Tcno { get; set; }
+        public string Tcno { get; set; } = string.Empty;
 
 
         [ForeignKey("BirimId")]
-        public Birim Birim { get; set; }
+        public Birim? Birim { get; set; }
 
-        [ForeignKey("SehirKodu")]
-        public Sehir Sehir { get; set; }
+        public Sehir? Sehir { get; set; }
     }
 
 }

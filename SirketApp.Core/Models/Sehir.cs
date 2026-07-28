@@ -3,15 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SirketApp.Core.Models
 {
-	[Table("sehir")]
-	public class Sehir
+	public class Sehir : CoreEntity
 	{
-		[Key]
 		[Column("sehirkodu")]
-		public string SehirKodu { get; set; }
+		public string SehirKodu { get; set; } = string.Empty;
 
-        [Column("sehiradi")]
-        public string SehirAdi { get; set; }
+		[Column("sehiradi")]
+		public string SehirAdi { get; set; } = string.Empty;
     }
 }
 

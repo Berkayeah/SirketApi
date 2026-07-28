@@ -16,8 +16,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Dapper\" />
+    <None Remove="Repository\" />
+    <None Remove="Repository\Abstracts\" />
+    <None Remove="Repository\Concretes\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dapper\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\Abstracts\" />
+    <Folder Include="Repository\Concretes\" />
   </ItemGroup>
 </Project>

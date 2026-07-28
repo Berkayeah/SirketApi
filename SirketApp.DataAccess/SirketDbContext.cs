@@ -9,8 +9,8 @@ namespace SirketApp.DataAccess
         {
         }
 
-        public DbSet<Personel> Personeller { get; set; }
-        public DbSet<Birim> Birimler { get; set; }
-        public DbSet<Sehir> Sehirler { get; set; }
+        public DbSet<Personel> Personeller { get; set; } = null!;
+        public DbSet<Birim> Birimler { get; set; } = null!;
+        public DbSet<Sehir> Sehirler { get; set; } = null!;
     }
 }

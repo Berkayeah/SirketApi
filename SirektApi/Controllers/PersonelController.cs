@@ -34,7 +34,7 @@ namespace SirektApi.Controllers
 		[HttpPost]
 		public IActionResult Add([FromBody] DtoPersonelRequest request)
 		{
-            DtoResponse response = _personelService.PersonelEkle(request);
+            DtoResponse response = _personelService.PersonelAdd(request);
 
             if (response.ReqCode == 200)
                 return Ok(response);
@@ -53,15 +53,30 @@ namespace SirektApi.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] DtoPersonelRequest request)
         {
-            DtoResponse response = _personelService.PersonelGuncelle(id, request);
+            DtoResponse response = _personelService.PersonelUpdate(id, request);
             return response.ReqCode == 200 ? Ok(response) : BadRequest(response);
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("hard/{id}")]
+        public IActionResult HardDelete(int id)
         {
-            DtoResponse response = _personelService.PersonelSil(id);
-            return response.ReqCode == 200 ? Ok(response) : BadRequest(response);
+            var response = _personelService.PersonelHardDelete(id);
+            if(response.ReqCode != 200)
+            {
+                return StatusCode(response.ReqCode, response);
+            }
+            return Ok(response);
+        }
+
+        [HttpDelete("soft/{id}")]
+        public IActionResult SoftDelete(int id)
+        {
+            var response = _personelService.PersonelSoftDelete(id);
+            if(response.ReqCode != 200)
+            {
+                return StatusCode(response.ReqCode, response);
+            }
+            return Ok(response);
         }
     }
 }

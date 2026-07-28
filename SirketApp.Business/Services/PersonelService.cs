@@ -5,33 +5,35 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SirketApp.Core.Models;
 using SirketApp.DataAccess.Dapper;
+using SirketApp.DataAccess.Repository.Abstracts;
 
 namespace SirketApp.Business.Services
 {
     public class PersonelService : IPersonelService
     {
-        private readonly SirketDbContext _context;
+        private readonly IPersonelRepository _personelRepository;
         private readonly PersonelDapper _personelDapper;
 
-        public PersonelService(SirketDbContext context, PersonelDapper personelDapper)
+        public PersonelService(IPersonelRepository personelRepository, PersonelDapper personelDapper)
         {
-            _context = context;
+            _personelRepository = personelRepository;
             _personelDapper = personelDapper;
         }
+
         public List<DtoPersonelResponse> GetPersoneller()
         {
-            return _context.Personeller
-                .Include(p => p.Birim)
-                .Include(p => p.Sehir)
-                .Select(p => new DtoPersonelResponse
+            var personeller = _personelRepository.GetAllWithDetails();
+
+            return personeller.Select(p => new DtoPersonelResponse
                 {
                     Ad = p.Ad,
                     Soyad = p.Soyad,
-                    BirimAdi = p.Birim.BirimAdi,
-                    SehirAdi = p.Sehir.SehirAdi
+                    BirimAdi = p.Birim != null ? p.Birim.BirimAdi : string.Empty,
+                    SehirAdi = p.Sehir != null ? p.Sehir.SehirAdi : string.Empty
                 })
                 .ToList();
         }
+
         public List<DtoPersonelResponse> GetPersonellerDapper()
         {
             List<Personel> personeller = _personelDapper.GetPersonellerDapper();
@@ -39,16 +41,13 @@ namespace SirketApp.Business.Services
             {
                 Ad = p.Ad,
                 Soyad = p.Soyad,
-                BirimAdi = p.Birim.BirimAdi,
-                SehirAdi = p.Sehir.SehirAdi
-
+                BirimAdi = p.Birim?.BirimAdi ?? string.Empty,
+                SehirAdi = p.Sehir?.SehirAdi ?? string.Empty
             }).ToList();
         }
 
-        public DtoResponse PersonelEkle(DtoPersonelRequest request)
+        public DtoResponse PersonelAdd(DtoPersonelRequest request)
         {
-            var response = new DtoResponse();
-            
             try
             {
                 var yeniPersonel = new Personel
@@ -56,125 +55,185 @@ namespace SirketApp.Business.Services
                     Ad = request.Ad,
                     Soyad = request.Soyad,
                     BirimId = request.BirimId,
-                    SehirKodu = request.SehirKodu,
-                    Tcno = request.Tcno
+                    Tcno = request.Tcno,
+                    SehirId = request.SehirId
                 };
 
-                _context.Personeller.Add(yeniPersonel);
-                _context.SaveChanges();
+                _personelRepository.Add(yeniPersonel);
+                _personelRepository.SaveChanges();
 
-                response.ReqCode = 200;
-                response.ReqMessage = "Personel başarıyla eklendi.";
+                return new DtoResponse
+                {
+                    ReqCode = 200,
+                    ReqMessage = "Personel başarıyla eklendi."
+                };
             }
-
             catch (Exception ex)
             {
-                response.ReqCode = 500;
-                response.ReqMessage = "Personel eklenirken veritabanında bir hata oluştu!";
-                response.ErrCode = "DB_INSERT_ERR";
-                response.ErrMessage = ex.InnerException != null ?
-                    ex.InnerException.Message : ex.Message;
+                return new DtoErrorResponse
+                {
+                    ReqCode = 500,
+                    ReqMessage = "Personel eklenirken veritabanında bir hata oluştu!",
+                    ErrCode = "DB_INSERT_ERR",
+                    ErrMessage = ex.InnerException?.Message ?? ex.Message
+                };
             }
-            return response;
         }
 
         public DtoResponse GetPersonelById(int id)
         {
-            var response = new DtoResponse();
             try
             {
-                var personel = _context.Personeller
-                .Include(p => p.Birim)
-                .Include(p => p.Sehir)
-                .FirstOrDefault(p => p.Id == id);
+                var personel = _personelRepository.GetById(id);
 
                 if (personel == null)
                 {
-                    response.ReqCode = 404;
-                    response.ReqMessage = "Aranan personel bulunamadı.";
-                    response.ErrCode = "NOT_FOUND";
-                    return response;
+                    return new DtoErrorResponse
+                    {
+                        ReqCode = 404,
+                        ReqMessage = "Aranan personel bulunamadı.",
+                        ErrCode = "NOT_FOUND"
+                    };
                 }
-                response.Data = new DtoPersonelResponse
+
+                return new DtoDataResponse<DtoPersonelResponse>
                 {
-                    Ad = personel.Ad,
-                    Soyad = personel.Soyad,
-                    BirimAdi = personel.Birim.BirimAdi,
-                    SehirAdi = personel.Sehir.SehirAdi
+                    ReqCode = 200,
+                    ReqMessage = "Personel başarıyla getirildi.",
+                    Data = new DtoPersonelResponse
+                    {
+                        Ad = personel.Ad,
+                        Soyad = personel.Soyad,
+                        BirimAdi = personel.Birim?.BirimAdi ?? string.Empty,
+                        SehirAdi = personel.Sehir?.SehirAdi ?? string.Empty
+                    }
                 };
-                response.ReqMessage = "Personel başarıyla getirildi.";
             }
             catch (Exception ex)
             {
-                response.ReqCode = 500;
-                response.ReqMessage = "Personel getirilirken sunucuda hata oluştu!";
-                response.ErrCode = "DB_READ_ERR";
-                response.ErrMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-            
+                return new DtoErrorResponse
+                {
+                    ReqCode = 500,
+                    ReqMessage = "Personel getirilirken sunucuda hata oluştu!",
+                    ErrCode = "DB_READ_ERR",
+                    ErrMessage = ex.InnerException?.Message ?? ex.Message
+                };
             }
-            return response;
         }
 
-        public DtoResponse PersonelGuncelle(int id, DtoPersonelRequest request)
+        public DtoResponse PersonelUpdate(int id, DtoPersonelRequest request)
         {
-            var response = new DtoResponse();
             try
             {
-                var personel = _context.Personeller.Find(id);
+                var personel = _personelRepository.GetById(id);
                 if (personel == null)
                 {
-                    response.ReqCode = 404;
-                    response.ReqMessage = "Güncellenecek personel bulunamadı.";
-                    response.ErrCode = "NOT_FOUND";
-                    return response;
+                    return new DtoErrorResponse
+                    {
+                        ReqCode = 404,
+                        ReqMessage = "Güncellenecek personel bulunamadı.",
+                        ErrCode = "NOT_FOUND"
+                    };
                 }
+
                 personel.Ad = request.Ad;
                 personel.Soyad = request.Soyad;
                 personel.Tcno = request.Tcno;
                 personel.BirimId = request.BirimId;
-                personel.SehirKodu = request.SehirKodu;
+                personel.SehirId = request.SehirId;
 
-                _context.SaveChanges();
-                response.ReqMessage = "Personel başarıyla güncellendi.";
+                _personelRepository.Update(personel);
+                _personelRepository.SaveChanges();
+
+                return new DtoResponse
+                {
+                    ReqCode = 200,
+                    ReqMessage = "Personel başarıyla güncellendi."
+                };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                response.ReqCode = 500;
-                response.ReqMessage = "Personel güncellenirken hata oluştu!";
-                response.ErrCode = "DB_UPDATE_ERR";
-                response.ErrMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-            
+                return new DtoErrorResponse
+                {
+                    ReqCode = 500,
+                    ReqMessage = "Personel güncellenirken hata oluştu!",
+                    ErrCode = "DB_UPDATE_ERR",
+                    ErrMessage = ex.InnerException?.Message ?? ex.Message
+                };
             }
-            return response;
         }
 
-        public DtoResponse PersonelSil(int id)
+        public DtoResponse PersonelHardDelete(int id)
         {
-            var response = new DtoResponse();
             try
             {
-                var personel = _context.Personeller.Find(id);
+                var personel = _personelRepository.GetById(id);
                 if (personel == null)
                 {
-                    response.ReqCode = 404;
-                    response.ReqMessage = "Silinecek personel bulunamadı.";
-                    response.ErrCode = "NOT_FOUND";
-                    return response;
+                    return new DtoErrorResponse
+                    {
+                        ReqCode = 404,
+                        ReqMessage = "Silinecek personel bulunamadı.",
+                        ErrCode = "NOT_FOUND"
+                    };
                 }
-                _context.Personeller.Remove(personel);
-                _context.SaveChanges();
-                response.ReqMessage = "Personel başarıyla silindi.";
+
+                _personelRepository.Delete(personel);
+                _personelRepository.SaveChanges();
+
+                return new DtoResponse
+                {
+                    ReqCode = 200,
+                    ReqMessage = "Personel başarıyla silindi."
+                };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                response.ReqCode = 500;
-                response.ReqMessage = "Personel silinirken hata oluştu!";
-                response.ErrCode = "DB_DELETE_ERR";
-                response.ErrMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-            
+                return new DtoErrorResponse
+                {
+                    ReqCode = 500,
+                    ReqMessage = "Personel silinirken hata oluştu!",
+                    ErrCode = "DB_DELETE_ERR",
+                    ErrMessage = ex.InnerException?.Message ?? ex.Message
+                };
             }
-            return response;
+        }
+
+        public DtoResponse PersonelSoftDelete(int id)
+        {
+            try
+            {
+                var personel = _personelRepository.GetById(id);
+                if (personel == null)
+                {
+                    return new DtoErrorResponse
+                    {
+                        ReqCode = 404,
+                        ReqMessage = "Silinecek personel bulunamadı.",
+                        ErrCode = "NOT_FOUND"
+                    };
+                }
+
+                personel.Status = 0;
+                _personelRepository.Update(personel);
+                _personelRepository.SaveChanges();
+
+                return new DtoResponse
+                {
+                    ReqCode = 200,
+                    ReqMessage = "Personel başarıyla pasif duruma alındı."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DtoErrorResponse
+                {
+                    ReqCode = 500,
+                    ReqMessage = "Personel pasife alınırken hata oluştu!",
+                    ErrCode = "DB_SOFT_DELETE_ERR",
+                    ErrMessage = ex.InnerException?.Message ?? ex.Message
+                };
+            }
         }
     }
 }
-

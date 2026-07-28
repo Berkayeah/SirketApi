@@ -9,13 +9,14 @@ namespace SirketApp.Business.Services
 		List<DtoPersonelResponse> GetPersoneller();
 		List<DtoPersonelResponse> GetPersonellerDapper();
 
-		public DtoResponse PersonelEkle(DtoPersonelRequest request);
+		public DtoResponse PersonelAdd(DtoPersonelRequest request);
 
 		public DtoResponse GetPersonelById(int id);
 
-		public DtoResponse PersonelGuncelle(int id, DtoPersonelRequest request);
+		public DtoResponse PersonelUpdate(int id, DtoPersonelRequest request);
 
-		public DtoResponse PersonelSil(int id);
+		DtoResponse PersonelHardDelete(int id);
+		DtoResponse PersonelSoftDelete(int id);
 	}
 }
 
