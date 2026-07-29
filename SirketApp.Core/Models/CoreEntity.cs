@@ -14,4 +14,3 @@ namespace SirketApp.Core.Models
 		public int Status { get; set; } = 1;
 	}
 }
-

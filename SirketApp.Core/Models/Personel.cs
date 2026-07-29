@@ -25,6 +25,7 @@ namespace SirketApp.Core.Models
         [ForeignKey("BirimId")]
         public Birim? Birim { get; set; }
 
+        [ForeignKey("SehirId")]
         public Sehir? Sehir { get; set; }
     }
 

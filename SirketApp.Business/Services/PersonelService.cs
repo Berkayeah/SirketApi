@@ -235,5 +235,18 @@ namespace SirketApp.Business.Services
                 };
             }
         }
+
+        public List<int> GetCityCodes()
+        {
+            var personeller = _personelRepository.GetWithCity();
+            var cityCodes = personeller
+                .Where(p => p.Sehir != null && !string.
+                IsNullOrEmpty(p.Sehir.SehirKodu))
+                .Select(p => Convert.ToInt32(p.Sehir?.SehirKodu))
+                .Distinct()
+                .OrderBy(k => k)
+                .ToList();
+            return cityCodes;
+        }
     }
 }

@@ -20,6 +20,13 @@ namespace SirketApp.DataAccess.Repository.Concretes
 				.Include(p => p.Sehir)
 				.ToList();
 		}
+
+		public List<Personel> GetWithCity()
+		{
+			return _context.Personeller
+				.Include(p => p.Sehir)
+				.ToList();
+		}
 	}
 }
-
+	

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SirketApp.Core.Models
 {
+	[Table("sehir")]
 	public class Sehir : CoreEntity
 	{
 		[Column("sehirkodu")]

@@ -5,11 +5,16 @@ using SirektApi;
 using SirketApp.DataAccess.Dapper;
 using SirketApp.DataAccess.Repository.Abstracts;
 using SirketApp.DataAccess.Repository.Concretes;
+using SirketApp.Business.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<ICacheService, CacheService>();
+builder.Services.AddScoped<ICityRepository, CityRepository>();
+builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IPersonelRepository, PersonelRepository>();
 builder.Services.AddDbContext<SirketDbContext>(options =>
 options.UseNpgsql("Host=localhost;Database=PersonelOrnegi;Username=postgres;Password=0017"));

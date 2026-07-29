@@ -78,5 +78,12 @@ namespace SirektApi.Controllers
             }
             return Ok(response);
         }
+
+        [HttpGet("city-codes")]
+        public IActionResult GetBenzersizSehirKodlari()
+        {
+            var codes = _personelService.GetCityCodes();
+            return Ok(codes);
+        }
     }
 }

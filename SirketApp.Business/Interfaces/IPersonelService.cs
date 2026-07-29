@@ -17,6 +17,7 @@ namespace SirketApp.Business.Services
 
 		DtoResponse PersonelHardDelete(int id);
 		DtoResponse PersonelSoftDelete(int id);
+
+		List<int> GetCityCodes();
 	}
 }
-
