@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DTOs\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Services\" />
+    <None Remove="DTOs\DtoRequests\" />
+    <None Remove="DTOs\DtoResponses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
+    <Folder Include="DTOs\DtoRequests\" />
+    <Folder Include="DTOs\DtoResponses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Company.Domain\Company.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.3" />
+  </ItemGroup>
+</Project>

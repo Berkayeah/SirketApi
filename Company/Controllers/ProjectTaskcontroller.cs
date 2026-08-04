@@ -1,5 +1,5 @@
-﻿using Company.App.DtoRequests;
-using Company.App.Services;
+﻿using Company.Application.DtoRequests;
+using Company.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Company.Api.Controllers

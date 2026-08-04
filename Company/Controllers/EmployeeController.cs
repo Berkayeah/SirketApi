@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Company.App.Services;
-using Company.App.DTOs.DtoRequests;
-using Company.App.DTOs.DtoResponses;
+using Company.Application.Services;
+using Company.Application.DTOs.DtoRequests;
+using Company.Application.DTOs.DtoResponses;
 
 namespace SirektApi.Controllers
 {

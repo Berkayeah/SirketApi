@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Company.App.Interfaces;
+using Company.Application.Interfaces;
 using Company.Domain.Models;
 
 namespace Company.Api.Controllers

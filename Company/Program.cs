@@ -1,10 +1,10 @@
-﻿using Company.App.Services;
+﻿using Company.Application.Services;
 using Company.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Company.Infrastructure.Dapper;
 using Company.Infrastructure.Repository;
 using Company.Domain.Interfaces;
-using Company.App.Interfaces;
+using Company.Application.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
